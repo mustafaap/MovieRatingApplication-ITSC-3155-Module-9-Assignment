@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
-tempmovie = movie_repository.create_movie("Avengers Endgame", "Russo Brothers", 5)
-movie_repository._db[0] = tempmovie
-movie2 = movie_repository.create_movie("New Movie", "New Director", 3)
-movie_repository._db[1] = movie2
+# tempmovie = movie_repository.create_movie("Avengers Endgame", "Russo Brothers", 5)
+# movie_repository._db[0] = tempmovie
+# movie2 = movie_repository.create_movie("New Movie", "New Director", 3)
+# movie_repository._db[1] = movie2
 
 
 @app.get('/')
@@ -45,7 +45,7 @@ def search_movies():
 def get_single_movie(movie_id: int):
     # TODO: Feature 4
     movie = movie_repository.get_movie_by_id(movie_id)
-    return render_template('get_single_movie.html', movie=movie)
+    return render_template('get_single_movie.html', movie=movie, movie_id=movie_id)
 
 
 @app.get('/movies/<int:movie_id>/edit')
