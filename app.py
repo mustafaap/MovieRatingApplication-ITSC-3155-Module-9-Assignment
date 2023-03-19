@@ -1,10 +1,8 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 
 from src.repositories.movie_repository import get_movie_repository
 
 app = Flask(__name__)
-movies = {}
-movie_id = []
 
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
@@ -60,6 +58,6 @@ def update_movie(movie_id: int):
 @app.post('/movies/<int:movie_id>/delete')
 def delete_movie(movie_id: int):
     # TODO: Feature 6
-    if movie_id in movies:
-        del movies[movie_id]
+    movie_repository.delete_movie(movie_id)
     return redirect('/movies')
+ 
