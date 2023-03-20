@@ -6,22 +6,21 @@
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
 <table class="table">
-<tr>
-    <th>Movie Title</th>
-    <th>Director</th>
-    <th>Rating</th>
-</tr>
+<thead class="table-light">
+    <tr>
+        <th>Movie Title</th>
+        <th>Director</th>
+        <th>Rating</th>
+    </tr>
+</thead>
+<tbody>
 {% for movie_id, movie in movie_dict.items() %}
-<tr>
-    <td>{{movie.title}}</td>
-    <td>{{movie.director}}</td>
-    <td>{{movie.rating}}</td>
-</tr>
+    <tr>
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.rating}}</td>
+    </tr>
 {% endfor %}
-<tr>
-    <td>{{a_movie.title}}</td>
-    <td>{{a_movie.director}}</td>
-    <td>{{a_movie.rating}}</td>
-</tr>
+</tbody>
 </table>
 {% endblock %}
