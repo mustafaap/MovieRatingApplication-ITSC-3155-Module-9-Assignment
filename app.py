@@ -3,6 +3,7 @@ from flask import Flask, redirect, render_template, request
 
 from src.repositories.movie_repository import get_movie_repository
 
+from src.models.movie import Movie
 app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
@@ -15,8 +16,7 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
-    # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    return render_template('list_all_movies.html', list_movies_active=True, movie_dict = movie_repository.get_all_movies())
 
 
 @app.get('/movies/new')
