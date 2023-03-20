@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, request
 
 from src.repositories.movie_repository import get_movie_repository
 
+from src.models.movie import Movie
 app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
@@ -11,7 +12,6 @@ movie_repository = get_movie_repository()
 #movie2 = movie_repository.create_movie("New Movie", "New Director", 3)
 #movie_repository._db[1] = movie2
 
-
 @app.get('/')
 def index():
     return render_template('index.html')
@@ -19,8 +19,7 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
-    # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    return render_template('list_all_movies.html', list_movies_active=True, movie_dict = movie_repository.get_all_movies())
 
 
 @app.get('/movies/new')
@@ -32,13 +31,20 @@ def create_movies_form():
 def create_movie():
     # TODO: Feature 2
     # After creating the movie in the database, we redirect to the list all movies page
+    
+    movie_name = request.form.get('name')
+    director = request.form.get('director')
+    rating = int(request.form.get('rating'))
+    movie_repository.create_movie(movie_name, director, rating)
     return redirect('/movies')
 
 
-@app.get('/movies/search')
+@app.get('/movies/search/')
 def search_movies():
-    # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+        title = request.args.get('title')
+        movies = movie_repository.get_movie_by_title(title)
+        #movie_title = movies.title
+        return render_template('search_movies.html', movies = movies, search_active=True)
 
 
 @app.get('/movies/<int:movie_id>')
