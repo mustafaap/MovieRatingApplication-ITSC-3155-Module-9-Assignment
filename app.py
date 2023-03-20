@@ -6,10 +6,6 @@ app = Flask(__name__)
 
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
-# tempmovie = movie_repository.create_movie("Avengers Endgame", "Russo Brothers", 5)
-# movie_repository._db[0] = tempmovie
-# movie2 = movie_repository.create_movie("New Movie", "New Director", 3)
-# movie_repository._db[1] = movie2
 
 
 @app.get('/')
