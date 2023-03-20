@@ -7,13 +7,6 @@ app = Flask(__name__)
 # Get the movie repository singleton to use throughout the application
 movie_repository = get_movie_repository()
 
-movie1 = movie_repository.create_movie("Avengers", "A Director", 5)
-movie_repository._db[0] = movie1
-movie2 = movie_repository.create_movie("Cars", "Some Director", 3)
-movie_repository._db[1] = movie2
-movie3 = movie_repository.create_movie("Cars", "The Director", 4)
-movie_repository._db[2] = movie3
-
 @app.get('/')
 def index():
     return render_template('index.html')
