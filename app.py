@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, render_template
 
+
 from src.repositories.movie_repository import get_movie_repository
 
 app = Flask(__name__)
