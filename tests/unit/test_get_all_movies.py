@@ -25,3 +25,6 @@ def test_get_all_movies(test_app):
     assert temp_movie2.title == movie_dict[temp_movie2.movie_id].title
     assert temp_movie2.rating == movie_dict[temp_movie2.movie_id].rating
     assert temp_movie2.director == movie_dict[temp_movie2.movie_id].director
+
+    # Clear database
+    movie_rep.clear_db()
