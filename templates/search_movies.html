@@ -11,12 +11,14 @@
         <label for="title">Movie Title:</label>
         <input type="text" class="form-control" id="title" name="title">
     </div>
+    <br>
     <input type="submit" class="btn btn-primary" value="Submit" />
 </form>
 
 
 {% if movies %}
 <h2 class="mt-5 mb-3">Search Results:</h2>
+<br>
 <ul class="list-group">
     <li class="list-group-item">{{ movies.title }}</li>
 </ul>
@@ -24,9 +26,9 @@
 <form action="/movies/{{ movies.movie_id }}" method="get">
     <input type="submit" class="btn btn-primary" value="View single movie">
 </form>
+{% elif title is none %}
 {% elif movies is none %}
 <p class="mt-5">No movies found.</p>
-{% elif title is none %}
 {% endif %}
 
 {% endblock %}
