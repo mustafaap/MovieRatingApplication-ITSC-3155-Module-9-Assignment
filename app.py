@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, abort
 
 from src.repositories.movie_repository import get_movie_repository
 
@@ -34,8 +34,10 @@ def create_movie():
     
     movie_name = request.form.get('name')
     director = request.form.get('director')
-    rating = int(request.form.get('rating'))
-    movie_repository.create_movie(movie_name, director, rating)
+    rating = request.form.get('rating')
+    if not movie_name or not director or not rating:
+        abort(400)
+    movie_repository.create_movie(movie_name, director, int(rating))
     return redirect('/movies')
 
 
