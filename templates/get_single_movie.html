@@ -3,6 +3,21 @@
 {% block title %}Movie Rating App | Movie{% endblock %}
 
 {% block body %}
-<h1 class="mb-5"></h1>
+<h1 class="mb-5">
 <!-- TODO: Feature 4 -->
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">{{ movie.title }}</li>
+            <li class="list-group-item">{{ movie.director }}</li>
+            <li class="list-group-item">{{ movie.rating }} / 5</li>
+        </ul>
+
+        <form action="/movies/{{ movie_id }}/edit" method="GET">
+            <button type="submit" class="btn btn-primary">Edit Movie</button>
+        </form>
+        <form action="/movies/{{ movie_id }}/delete" method="POST">
+            <button type="submit" class="btn btn-primary">Delete Movie</button>
+        </form>
+    </div>
+</h1>
 {% endblock %}

@@ -3,7 +3,28 @@
 {% block title %}Movie Rating App | Create Movie Rating{% endblock %}
 
 {% block body %}
+
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
+
+<form action="/movies" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Movie Name</label>
+        <input type="text" name = "name" class="form-control" id="name" placeholder="Enter movie name" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="director" class="form-label">Directors name</label>
+        <input type="text" name = "director" class="form-control" id="director" placeholder="Enter the directors name" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" name = "rating" class="form-control" id="rating" min="1" max="5" placeholder="1-5" required>
+    </div>
+
+    <button type="submit" class = "btn btn-primary ml-1 mt-2">Submit</button>
+</form>
+
 <!-- TODO: Feature 2 -->
 {% endblock %}

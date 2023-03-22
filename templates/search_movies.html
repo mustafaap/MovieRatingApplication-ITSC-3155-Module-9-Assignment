@@ -22,12 +22,14 @@
 <ul class="list-group">
     <li class="list-group-item">{{ movies.title }}</li>
 </ul>
+
 <br>
 <form action="/movies/{{ movies.movie_id }}" method="get">
     <input type="submit" class="btn btn-primary" value="View single movie">
 </form>
 {% elif title is none %}
 {% elif movies is none %}
+
 <p class="mt-5">No movies found.</p>
 {% endif %}
 
