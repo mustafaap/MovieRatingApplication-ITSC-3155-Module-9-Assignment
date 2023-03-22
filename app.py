@@ -41,7 +41,7 @@ def create_movie():
     return redirect('/movies')
 
 
-@app.get('/movies/search/')
+@app.get('/movies/search')
 def search_movies():
         title = request.args.get('title')
         movies = movie_repository.get_movie_by_title(title)

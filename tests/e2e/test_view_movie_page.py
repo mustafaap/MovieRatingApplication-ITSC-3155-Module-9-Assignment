@@ -3,6 +3,7 @@ from src.repositories.movie_repository import get_movie_repository
 
 def test_view_movie_page(test_app):
     movie_repository = get_movie_repository()
+    movie_repository.clear_db()
     tempmovie = movie_repository.create_movie("Avengers Endgame", "Russo Brothers", 5)
     movie_repository._db[0] = tempmovie
 
