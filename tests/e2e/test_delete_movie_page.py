@@ -6,13 +6,16 @@ test_app = app.test_client()
 
 def test_delete_movie():
 
-    # Create a temporary movie to delete
     movie_repository = get_movie_repository()
     # Clear database
     movie_repository.clear_db()
+
+    # Create a temporary movie to delete
     temp_movie1 = movie_repository.create_movie('Avengers Endgame', 'Russo Brothers', 5)
     temp_movie2 = movie_repository.create_movie('Avengers Infinity war', 'Russo Brothers', 4)
     temp_movie3 = movie_repository.create_movie('The Avengers', 'Joss Whedon', 4)
+
+    # Adding movie to database
     movie_repository._db[0] = temp_movie1
     movie_repository._db[1] = temp_movie2
     movie_repository._db[2] = temp_movie3
