@@ -9,7 +9,7 @@ def test_search_movies(test_app):
     # Adds movies to database
     temp_movie1 = movie_rep.create_movie('Avengers', 'Bill', 5)
     # Search for the movie by title
-    response = test_app.get('/movies/search?title=Avengers')
+    response = test_app.get('/movies/search/?title=Avengers')
     # Check if the response has the correct status code
     assert response.status_code == 200
     # Check if the returned HTML contains the movie's title and director
