@@ -13,6 +13,9 @@ This repository houses the scaffolding for a movie rating application. By the en
 
 You must have Python 3.10+ installed to run this application.
 
+![movierating](https://github.com/mustafaap/MovieRatingApplication-ITSC-3155-Module-9-Assignment/assets/123131622/21e419da-fa03-4896-a1be-a997feba9157)
+
+
 ## Instructions
 
 1. Have ***exactly one*** member of your team fork this repository. This team member should also add every other team member as write-access contributors to the fork.
